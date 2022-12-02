@@ -1,20 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Cliente
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <form>
+        <ion-col>
+          <h2 style="text-align: center;">Seleccione la fecha del evento</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+          <ion-datetime style="margin: auto; margin-top: 2rem;" ></ion-datetime> <br>
+
+          <h2 style="text-align: center;">Profundidad de la alberca</h2>
+          <ion-range (ionChange)="onIonChange($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="5"
+            style="width: 50%; margin: auto;"></ion-range>
+          <ion-label>ionChange emitted value: {{ lastEmittedValue }}</ion-label>
+
+          <ion-list style="width: 70%; margin:auto;">
+            <ion-item>
+              <ion-label>Brincolin</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Mesa</ion-label>
+              <ion-toggle slot="end" [checked]="false"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Futbolito</ion-label>
+              <ion-toggle slot="end" [disabled]="false"></ion-toggle>
+            </ion-item>
+          </ion-list>
+
+          <h2 style=" text-align: center;"> Total ${{total}}</h2> <br><br>
+          <ion-button style=" margin:auto;">Default</ion-button>
+        </ion-col>
+        
+      </form>
+      </ion-grid>
 </ion-content>
